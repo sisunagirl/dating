@@ -6,35 +6,16 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
+    // Цільова URL (YouTube)
+    const targetUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Приклад посилання
     
-    // КОНСТАНТА ЗСУВУ ДЛЯ ШИФРУВАННЯ (ЗМІНІТЬ ЇЇ, ЯКЩО ПОТРІБНО)
-    const SHIFT_KEY = 10;
-    
-    // Закодована URL: https://sisuny.top/click?o=2&a=1081
-    // Це масив ASCII-кодів, зміщених на +10
-    const encodedUrl = [
-      118, 116, 116, 120, 125, 63, 63, 115, 123, 115, 127, 122, 123, 56, 122, 128, 125, 63,
-      119, 122, 115, 125, 117, 119, 118, 126, 63, 129, 60, 52, 63, 107, 60, 50, 53, 58
-    ];
-
-    // Функція декодування
-    function decodeCipher(arr) {
-      return arr.map(code => {
-        // Зворотний зсув: віднімаємо SHIFT_KEY
-        return String.fromCharCode(code - SHIFT_KEY);
-      }).join('');
-    }
-
-    // Затримка та декодування
+    // Затримка 2 секунди
     setTimeout(() => {
-      const targetUrl = decodeCipher(encodedUrl);
-      
-      // Перенаправлення
       window.location.href = targetUrl;
-    }, 2000); // 2 секунди затримки
+    }, 2000); 
   </script>
   <style>
-    /* Стилі залишаються без змін */
+    /* ... стилі залишаються без змін ... */
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f2f5;
